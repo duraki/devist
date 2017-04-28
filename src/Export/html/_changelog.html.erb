@@ -1,0 +1,28 @@
+<table>
+  <td>Project: <%= @project.name %> </td>
+  <td>Author: <%= @project.author %> </td>
+  <td>Homepage: <%= @project.homepage %> </td>
+</table>
+
+<table>
+  <% @changelog.each do |version| %>
+
+    <p><%= version.version %></p>
+
+      <% version.tags.get[0].each do |added| %>
+        <span><b>Added:</b> <%= added.chomp %></span><br>
+      <% end %>
+
+      <% version.tags.get[1].each do |added| %>
+          <span><b>Fixed:</b> <%= added.chomp %></span><br>
+      <% end %>
+
+      <% version.tags.get[2].each do |added| %>
+          <span><b>Removed:</b> <%= added.chomp %></span><br>
+      <% end %>
+
+      <% version.tags.get[3].each do |added| %>
+          <span><b>Improved:</b> <%= added.chomp %></span><br>
+      <% end %>
+  <% end %>
+</table>

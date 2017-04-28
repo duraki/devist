@@ -1,5 +1,5 @@
 class Project
 
-    attr_accessor :project, :author, :homepage
+    attr_accessor :name, :author, :homepage
 
 end

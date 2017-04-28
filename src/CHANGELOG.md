@@ -2,6 +2,10 @@
 @author: Halis Duraki <duraki.halis@nsoft.ba>  
 @homepage: https://duraki.gitlab.io  
 
+### Version 1.1.0 of Apr 28 2017
++ #added: compiler for erb
++ #fixed: extractor
+
 ### Version 1.0.1 of Apr 28 2017
 + #improved: parse manipulation 
 + #improved: transfer devist to objclass
