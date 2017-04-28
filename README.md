@@ -8,6 +8,9 @@ Let's pretend you are a developer having typical `RELEASES.md`, `NEWS.md` or `CH
 Using **devist**, you can generate and export these notes to `.html` and allow users to check them out without reading 
  ugly markdown format.
  
+The only thing you have to do is ran `devist` command inside your project directory. **devist** will look for the 
+`RELEASES.md` and export HTML page.
+ 
 ```
 $ devist
        __          _      __ 
@@ -17,5 +20,24 @@ $ devist
 \__,_/\___/|___/_/____/\__/  
  - Release notes generator.
    stacklog/devist
+   
+[+] Found RELEASES.md
+[+] Parsing the data ...
+[+] DONE! ~
+
+[+] Building ERB
+[+] Exporting ...
+[+] DONE! ~
+
+[+] Export saved in devist/releases.html
 ```
  
+In case `RELEASES.md` is not available in the project directory, **devist** will look for `NEWS.md` and `CHANGELOG.md` 
+respectively. In case none of the fails is available command will fail and you will need to set the file as an argument.
+
+## Why is it useful?
+
+Before **devist**, we developed [vicilog](https://github.com/stacklog/vicilog). Although it got attention on the original 
+repository, the system was not dynamic, and very, very basic.
+ 
+Devist allows a great number of options including but not limited to export style.  
