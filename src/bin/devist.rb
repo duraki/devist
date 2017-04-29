@@ -1,4 +1,4 @@
-#!/usr/local/bin/ruby
+#!/usr/bin/ruby
 
 ##############################################################
 #
@@ -11,6 +11,15 @@
 #
 ##############################################################
 
+require_relative('../devist.rb')
+
+# bin/devist.rb
+# This file is a part of the devist package.
+# Halis Duraki <duraki.halis@nsoft.ba>
+#
+# This is the main entry point of the Devist. It creates a
+# binary and parse and execute actions based on given CLI
+# arguments.
 class DevistBin
 
   # Print banner image.
@@ -35,18 +44,17 @@ EOL
   Use devist to generate beautiful release notes. All you need to have is CHANGELOG.md with 
   .devist line at the end of the file. 
     
-  $ devist          | compile to html from current directory with default theme
+  $ devist          | run devist
   $ devist --help   | usage / this menu
   $ devist --v      | show current version
-  $ devist --new    | create template
-  $ devist --theme  | set theme for export
-  $ devist --file   | set filename to compile
+  $ devist --new    | create changelog template 
   
   - 
   $ devist file_name theme_name
 
   Example:
-  $ devist default CHANGELOG
+  $ devist changelog
+  $ devist changelog polar
 EOL
   end
 
@@ -58,35 +66,90 @@ EOL
 
     # Recieved filename + theme as args
     if @arguments.count.equal?(2)
-      file_name   = @arguments[0]
-      theme_name  = @arguments[1]
-
-      print "  * devist will generate export for file '" + file_name + "' with theme '" + theme_name + "'\n"
+      return theme
     end
 
+    # Check other arguments
     case @arguments[0]
-      when '--help'
-        print_help
+    when '--help'
+      print_help
+    when '--v'
+      version
+    when '--new'
+      create  # Create new changelog (fresh project)
+    else
+      default # Try to export with filename and default theme
+      return
+    end
+  end
 
-      when '--v'
-        v = `git rev-parse HEAD`
-        d = `git log -1 --format=%cd`
-        print "  * devist version: " + v[0, 7] + " - " + d[0,10] + "\n"
+  # Generate with default theme.
+  def default
+    file_name = @arguments[0]
 
-      when '--new'
-        print "  * Generating CHANGELOG.md ...\n"
-        new = File.new(Dir.pwd + "/CHANGELOGs.md", "w")
-        print "  * Output .devist as a way of thinkering ...\n"
-        new.puts(".devist")
-        new.close
-        print "  * All done. Continue editing CHANGELOG.md.\n"
+    unless file_name.nil?
+      decompile(file_name)
+    end
+  end
+
+  # Generate by specifying theme.
+  def theme
+    file_name = @arguments[0]
+    theme_name = @arguments[1]
+
+    unless file_name.nil?
+      decompile(file_name, theme_name)
+    end
+  end
+
+  # Display devist version.
+  def version
+    v = `git rev-parse HEAD`
+    d = `git log -1 --format=%cd`
+    print "  * devist version: #{v[0, 7]} - #{d[0, 10]}\n"
+  end
+
+  # Create new changelog.
+  def create
+    print "  * Generating CHANGELOG.md ...\n"
+
+    if File.file?(Dir.pwd + '/CHANGELOG.md')
+      print "  * File CHANGELOG.md already exists. Backup it, remove, and try again.\n"
+      print "  * You may try to run 'devist changelog' to try generate the export.\n"
+      abort
     end
 
+    new = File.new(Dir.pwd + '/CHANGELOG.md', 'w')
+    print "  * Output .devist as a way of thinkering ...\n"
+    thinkering(new)
+    print "  -\n"
+    print "  ** All done! Continue editing CHANGELOG.md.\n"
+  end
+
+  # Fill new changelog.
+  def thinkering(new)
+    new.puts('@project: MyProject')
+    new.puts('@author: Your Name <email@address.com>')
+    new.puts('@homepage: https://example.com')
+    new.puts('')
+    new.puts("### Version 1.0.0 of #{Time.now.strftime("%d %b %Y")}")
+    new.puts('+ #added: something goes here')
+    new.puts('')
+    new.puts('.devist')
+    new.close
+  end
+
+  # Decompile ep.
+  def decompile(file_name, theme_name = 'default')
+    print "  * devist will try to generate export for file '#{file_name}' with theme '#{theme_name}'\n"
+
+    @devist = Devist.new(file_name, theme_name)
+    @devist.decompile
+    @devist.recompile
   end
 
 end
 
+# Create new bin/ep with argv
 devistbin = DevistBin.new
-#devistbin.print_logo
-#devistbin.print_help
 devistbin.ep(ARGV)
