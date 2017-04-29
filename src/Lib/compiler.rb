@@ -1,50 +1,50 @@
 require 'erb'
 
+# compiler.rb
+# This file is a part of the devist package.
+# Halis Duraki <duraki.halis@nsoft.ba>
+#
+# This is the main compiler class. It takes arguments
+# project (model), changelog (model), and theme name.
+# Object offers a version listing plus save operation
+# and binding to the theme erb.
 class Compiler
 
-  def initialize(project, changelog)
+  # Init.
+  def initialize(project, changelog, theme)
     @project = project
     @changelog = changelog
+    @theme = theme
   end
 
-  def compile_info
-    asset = "#{__dir__}/../Export/html/_changelog.html.erb"
-    erb = ERB.new(File.open(asset).read, 0, '>')
-    p erb.result binding
+  # Save compiled.
+  def save
+    print "  -\n"
+    print "  * Trying to compile set ...\n"
 
-    File.open('/tmp/out.html', 'w') do |f|
+    print "  * Creating new export from erb ...\n"
+    asset = "#{__dir__}/../Export/html/#{@theme}"
+    erb = ERB.new(File.open(asset).read, 0, '>')
+
+    print "  * Injecting parsed results to the erb ...\n"
+    erb.result binding
+
+    print "  * Writing compiled data to changelog file ...\n"
+    File.open("#{Dir.pwd}/changelog.html", 'w') do |f|
       f.write erb.result binding
     end
+
+    print "  -\n"
+    print "  ** All done! Check changelog.html file in your browser :)\n"
   end
 
+  # Compile data.
   def compile_data
-    compile_info
-
     @changelog.each do |version|
-
-      p "Compiling version " + version.version + " ..."
-
-      # added
-      version.tags.get[0].each do |change|
-        p change
-      end
-
-      # fixed
-      version.tags.get[1].each do |change|
-        p change
-      end
-
-      # removed
-      version.tags.get[2].each do |change|
-        p change
-      end
-
-      # improved
-      version.tags.get[3].each do |change|
-        p change
-      end
-
+      print "  * Found version #{version.version}; registered ...\n"
     end
+
+    save
   end
 
 end
