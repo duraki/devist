@@ -31,13 +31,14 @@ $ devist
 
 [+] Export saved in devist/releases.html
 ```
- 
-In case `RELEASES.md` is not available in the project directory, **devist** will look for `NEWS.md` and `CHANGELOG.md` 
-respectively. In case none of the fails is available command will fail and you will need to set the file as an argument.
+
+In case `RELEASES.md` is not available in the directory, **devist** will search for `NEWS.md` and `CHANGELOG.md` 
+respectively. We prefer to have our project root directory consist of `CHANGELOG.md` with necessary details.
 
 ## Why is it useful?
 
 Before **devist**, we developed [vicilog](https://github.com/stacklog/vicilog). Although it got attention on the original 
 repository, the system was not dynamic, and very, very basic.
  
-Devist allows a great number of options including but not limited to export style.  
+Devist allows a great number of options including but not limited to export theme, export method, ease of use, including 
+new features coming soon.  
