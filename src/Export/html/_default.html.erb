@@ -10,14 +10,14 @@
   <link href='https://fonts.googleapis.com/css?family=Abel|Roboto:400|Roboto+Condensed:400|Roboto+Mono:400' rel='stylesheet' type='text/css'>
 
   <!-- Title -->
-  <title><%= @project.author %>/<%= @project.name %> - devist notes</title>
+  <title><%= @project.author.gsub(/\<.*?>/,"").chomp.strip! + '/' +  @project.name %> - devist notes</title>
 
 </html>
 <body>
   <header><h2>Release Notes - <%= @project.name %></h2></header>
   <nav class="side-nav">
     <ul style="background: none; color: #555; padding: 0; margin: 0;">
-      <li><a class="side-nav-item" href="<%= @project.homepage %>"><%= @project.author %>/<%= @project.name %></a> </li>
+      <li><a class="side-nav-item" href="<%= @project.homepage %>"><%= @project.author.gsub(/\<.*?\>/,"").chomp.strip! + '/' + @project.name %></a> </li>
       <li><a style="font-size:12px;" class="side-nav-item " href="https://github.com/stacklog/devist">Created with devist</a></li>
     </ul>
   </nav>
