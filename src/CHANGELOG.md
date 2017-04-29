@@ -2,6 +2,15 @@
 @author: Halis Duraki <duraki.halis@nsoft.ba>  
 @homepage: https://duraki.gitlab.io  
 
+### Version 1.1.2 of Apr 30 2017
++ #added: default & polar theme
++ #added: theme support
++ #added: project builder
++ #added: argument support
++ #fixed: code style / minor bugs
++ #fixed: self signature
++ #removed: changelog erb
+
 ### Version 1.1.1 of Apr 29 2017
 + #added: default dark export style
 + #added: check for proper changelog format
