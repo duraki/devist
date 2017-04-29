@@ -2,6 +2,10 @@
 @author: Halis Duraki <duraki.halis@nsoft.ba>  
 @homepage: https://duraki.gitlab.io  
 
+### Version 1.1.1 of Apr 29 2017
++ #added: default dark export style
++ #added: check for proper changelog format
+
 ### Version 1.1.0 of Apr 28 2017
 + #added: compiler for erb
 + #fixed: extractor
