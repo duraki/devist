@@ -10,6 +10,14 @@ class Parser
     @changelog = []
     version = -1 # Start from 0
 
+    isdevist = File.open(file_name).to_a
+    p isdevist.last
+
+    if isdevist.last != ".devist"
+      abort("The file is not a devist configured. Are you missing .devist at the end of the file?")
+      exit
+    end
+
     File.foreach(file_name) do |line|
 
       case line
