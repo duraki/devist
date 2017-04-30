@@ -1,5 +1,5 @@
-require './Lib/parser.rb'
-require '../src/Lib/compiler.rb'
+require_relative './Lib/parser.rb'
+require_relative './Lib/compiler.rb'
 
 # devist.rb
 # This file is a part of the devist package.

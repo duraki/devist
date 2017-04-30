@@ -11,7 +11,7 @@
 #
 ##############################################################
 
-require_relative('../devist.rb')
+require_relative '../devist.rb'
 
 # bin/devist.rb
 # This file is a part of the devist package.
@@ -128,9 +128,9 @@ EOL
 
   # Fill new changelog.
   def thinkering(new)
-    new.puts('@project: MyProject')
-    new.puts('@author: Your Name <email@address.com>')
-    new.puts('@homepage: https://example.com')
+    new.puts('@project: MyProject  ')
+    new.puts('@author: Your Name <email@address.com>  ')
+    new.puts('@homepage: https://example.com  ')
     new.puts('')
     new.puts("### Version 1.0.0 of #{Time.now.strftime("%d %b %Y")}")
     new.puts('+ #added: something goes here')
