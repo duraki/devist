@@ -8,6 +8,7 @@
 + #added: project builder
 + #added: argument support
 + #added: extract version date
++ #added: installation script
 + #fixed: code style / minor bugs
 + #fixed: self signature
 + #removed: changelog erb
