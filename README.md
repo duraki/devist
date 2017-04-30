@@ -1,3 +1,5 @@
+<p align="center"><img width="200px" src="docs/img/devist-trans.png"/></p>
+
 # devist!
 A Ruby library to **create beautiful release notes**.
 
