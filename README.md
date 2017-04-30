@@ -80,6 +80,8 @@ Here are the main reason why you should use **devist**:
 ## Themes (+ contribution)
 Refer to [devist-themes](https://github.com/stacklog/devist-themes) repository for themes contribution and documentation.
 
+To install themes, just copy **_themename.html.erb** to your `devist` installation folder (usually `$HOME/devist/src/Export/html`).
+
 Devist themes are developed by using standard API from compiled data. The compiler build themes upon `*.erb` binding.
 Currently, the project offers three built-in themes: *default*, *polar*, and *vicilog*. 
   
