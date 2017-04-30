@@ -1,4 +1,4 @@
-require './Model/tags.rb'
+require __dir__ + '/tags.rb'
 
 # version.rb
 # This file is a part of the devist package.
@@ -9,10 +9,11 @@ require './Model/tags.rb'
 # data.
 class Version
 
-  attr_accessor :version, :tags
+  attr_accessor :version, :date, :tags
 
-  def initialize(version)
+  def initialize(version, date)
     @version = version
+    @date = date
     @tags = Tag.new
   end
 
