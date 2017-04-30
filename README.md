@@ -1,5 +1,5 @@
 # devist!
-A Ruby library to create beautiful release notes.
+A Ruby library to **create beautiful release notes**.
 
 ## How do I devist?
 Let's pretend you are a developer having typical `RELEASES.md`, `NEWS.md` or `CHANGELOG.md` in your project repository. 

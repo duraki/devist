@@ -1,2 +1,7 @@
 .idea/
 .DS_Store
+Export/html
+!src/Export/html/_default.html.erb
+!src/Export/html/_polar.html.erb
+!src/Export/html/_vicilog.html.erb
+src/Export/html/
