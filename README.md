@@ -77,14 +77,14 @@ Here are the main reason why you should use **devist**:
   - You can create a deploy task to generate + move the file to your controller action
 * More reasons coming soon! :)
 
-## Themes (& theme contibution)
+## Themes (+ contribution)
 Refer to [devist-themes](https://github.com/stacklog/devist-themes) repository for themes contribution and documentation.
 
 Devist themes are developed by using standard API from compiled data. The compiler build themes upon `*.erb` binding.
 Currently, the project offers three built-in themes: *default*, *polar*, and *vicilog*. 
   
 If you want to **contribute** to themes, please, do so in [devist-themes](https://github.com/stacklog/devist-themes) repository.
-To learn how to make own themes, please refer to our API. Fot better understanding, read the code of built-in themes.
+To learn how to make own themes, please refer to our API. For better understanding, read the code of built-in themes.
 
 Here is small list of contribution guidelines regarding themes:
 
@@ -94,16 +94,16 @@ Here is small list of contribution guidelines regarding themes:
 * Google Fonts is allowed
 
 ## Requirements
-To run `devist` on your system you basically don't need anything. We followed best practice as with `vicilog` and made 
-the devist be available in wild without huge dependency list.
+To run `devist` on your system you basically don't need anything. We followed best advice as with `vicilog` and made 
+the **devist** be available in the wild without huge dependency list.
 
-Since `devist` is built native with Ruby, you can start using it right now.
+Since `devist` is built natively with Ruby components/libs, you can start using **devist** right now.
 
 Check if your system does have at least Ruby 2.0.0 installed.
 
 ```
 $ ruby -v
-ruby 2.0.0p648 (details) 
+ruby 2.0.0p648 (.) 
 ```
 
 Of course, your project should have `changelog.md` or equivalent so *devist* can parse and export something.
@@ -125,17 +125,17 @@ The changelog format we prefer is really easy to remember and understand under v
 
 Basic requirements for the `changelog.md` file are these:
 * There are optional `@project`, `@author`, and `@homepage` references
-  - We advice you to use them and add two spaces after all of them (line break)
+  - We advice you to use them and add two spaces after every line (line break)
 * To register a version, use `### Version x.x(.x) of Mon(th) dd YYYY`
   - Any date format is supported but keep it consistent
 * To register a change, use `+ #[tag]: [change]`
-  - Tags: `added`, `fixed`, `removed`, `improved`
+  - Tags are: `added`, `fixed`, `removed`, `improved`
 * Last line of file **MUST** be `.devist` or compiler will fail 
   - This is to tell **devist** the file is configured for export
 
 ## Installation
 Devist is in early stage so we didn't follow best pratice and build `gem` out of it. Instead, we built **devist** as a 
-bin to function project and can be installed easily through our install script.
+bin to be used as external devtool.
 
 To install `devist`, run:
 
@@ -144,7 +144,7 @@ $ curl -sSL https://raw.githubusercontent.com/stacklog/devist/master/install.sh 
 ```
 
 ### Manual Installation
-In case the `devist` installation failed, please follow this to install manually.
+In case the `devist` installation script failed, please follow this to install manually.
 
 ```
 # Replace .bashrc with your current shell dotfile 
@@ -159,7 +159,7 @@ Refer to project [wiki](https://github.com/stacklog/devist/wiki) for API documen
 
 ## Contribution
 All contribution on **devist** project, **devist** themes, or overall code or documentation in general is highly appreciated.
-Please refer to [CONTRIBUTION.md](contribution.md) file for more details.
+Please refer to [CONTRIBUTION](CONTRIBUTION.md) file for more details.
 
 ## License
 Devist is released under the [MIT License](http://www.opensource.org/licenses/MIT).
