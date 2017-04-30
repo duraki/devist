@@ -1,6 +1,8 @@
 require_relative '../Model/version.rb'
 require_relative '../Model/project.rb'
-require_relative 'extractor.rb'
+require_relative './extractor.rb'
+
+require 'date'
 
 # parser.rb
 # This file is a part of the devist package.
@@ -53,9 +55,10 @@ class Parser
   # Build version.
   def build_version(line)
     case line
-    when /### Version+/
+      when /### Version+/
+      @date = Date.parse(line) # Extract version date
       @version += 1 # Increment version
-      @changelog[@version] = Version.new (Extractor.extract_version line)
+      @changelog[@version] = Version.new (Extractor.extract_version line), @date
     end
   end
 
