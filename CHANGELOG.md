@@ -7,6 +7,7 @@
 + #added: theme support
 + #added: project builder
 + #added: argument support
++ #added: extract version date
 + #fixed: code style / minor bugs
 + #fixed: self signature
 + #removed: changelog erb
@@ -29,3 +30,5 @@
 + #added: create tag obj
 + #added: inject new change 
 + #added: default tags
+
+.devist
