@@ -1,6 +1,6 @@
 @project: devist  
 @author: Halis Duraki <duraki.halis@nsoft.ba>  
-@homepage: https://duraki.gitlab.io  
+@homepage: https://stacklog.github.io/devist 
 
 ### Version 1.1.2 of Apr 30 2017
 + #added: default & polar theme
