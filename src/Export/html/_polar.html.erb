@@ -12,7 +12,6 @@
   <!-- Title -->
   <title><%= @project.author.gsub(/\<.*?>/,"").chomp.strip! + '/' +  @project.name %> - devist notes</title>
 
-</html>
 <body>
   <header><h2>Release Notes - <%= @project.name %></h2></header>
   <nav class="side-nav">
@@ -26,8 +25,9 @@
 
     <% @changelog.each do |version| %>
 
-        <h3>Version <%= version.version %></h3>
-        <!-- <p>From XX Mon YEAR</p> -->
+        <div id="<%= version.version %>">
+        <a href="#<%= version.version %>"><h3>Version <%= version.version %></h3></a>
+        <p><%= version.date.to_s %></p>
 
         <ul>
 
@@ -48,7 +48,7 @@
           <% end %>
 
         </ul>
-
+        </div>
 
     <% end %>
 
@@ -278,3 +278,4 @@
   }
 
 </style>
+</html>
