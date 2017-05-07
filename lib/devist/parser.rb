@@ -17,13 +17,13 @@ class Devist::Parser
   def build_info(line)
     case line
     when /@project:+/
-      @project.name = Extractor.extract_info(line)
+      @project.name = Devist::Extractor.extract_info(line)
       print "  * Extracting project name ... [#{@project.name.chomp.strip!}]\n"
     when /@author:.+/
-      @project.author = Extractor.extract_info(line)
+      @project.author = Devist::Extractor.extract_info(line)
       print "  * Extracting project author ... [#{@project.author.chomp.strip!}]\n"
     when /@homepage:.+/
-      @project.homepage = Extractor.extract_info(line)
+      @project.homepage = Devist::Extractor.extract_info(line)
       print "  * Extracting project homepage ... [#{@project.homepage.chomp.strip!}]\n"
     end
   end
@@ -38,13 +38,13 @@ class Devist::Parser
   def build_tags(line)
     case line
     when /#added.+/
-      @changelog[@version].tag 'added', Extractor.extract_change(line)
+      @changelog[@version].tag 'added', Devist::Extractor.extract_change(line)
     when /#fixed.+/
-      @changelog[@version].tag 'fixed', Extractor.extract_change(line)
+      @changelog[@version].tag 'fixed', Devist::Extractor.extract_change(line)
     when /#removed.+/
-      @changelog[@version].tag 'removed', Extractor.extract_change(line)
+      @changelog[@version].tag 'removed', Devist::Extractor.extract_change(line)
     when /#improved.+/
-      @changelog[@version].tag 'improved', Extractor.extract_change(line)
+      @changelog[@version].tag 'improved', Devist::Extractor.extract_change(line)
     end
   end
 
@@ -54,7 +54,7 @@ class Devist::Parser
       when /### Version+/
       @date = Date.parse(line) # Extract version date
       @version += 1 # Increment version
-      @changelog[@version] = Version.new (Extractor.extract_version line), @date
+      @changelog[@version] = Devist::Version.new (Devist::Extractor.extract_version line), @date
     end
   end
 
@@ -77,7 +77,7 @@ class Devist::Parser
 
   # Line parser.
   def parse_data(file_name)
-    @project = Project.new
+    @project = Devist::Project.new
     @changelog = []
     @version = -1 # Start from 0
 
@@ -95,6 +95,7 @@ class Devist::Parser
 
 end
 
+require 'devist/extractor'
 require 'devist/models/project'
 require 'devist/models/tags'
 require 'devist/models/version'

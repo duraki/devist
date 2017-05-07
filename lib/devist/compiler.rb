@@ -23,7 +23,7 @@ class Devist::Compiler
     print "  * Trying to compile set ...\n"
 
     print "  * Creating new export from erb ...\n"
-    asset = "#{__dir__}/../Export/html/#{@theme}"
+    asset = "#{__dir__}/export/html/#{@theme}"
     erb = ERB.new(File.open(asset).read, 0, '>')
 
     print "  * Injecting parsed results to the erb ...\n"

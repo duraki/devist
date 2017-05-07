@@ -12,7 +12,7 @@ class Devist::Version
   def initialize(version, date)
     @version = version
     @date = date
-    @tags = Tag.new
+    @tags = Devist::Tag.new
   end
 
   # Create a new tag.

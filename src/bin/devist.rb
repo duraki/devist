@@ -11,7 +11,7 @@
 #
 ##############################################################
 
-require_relative '../devist.rb'
+require 'devist'
 
 # bin/devist.rb
 # This file is a part of the devist package.
