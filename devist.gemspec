@@ -1,8 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'devist'
-  s.version     = '1.0.0'
+  s.version     = '1.1.3'
   s.executables = ['devist']
-  s.date        = '2017-07-05'
   s.summary     = 'Generate beautiful changelogs!'
   s.description = 'A Ruby gem that will help you export your Markdown changelog into beautiful HTML pages.'
   s.authors     = ['Halis Duraki']

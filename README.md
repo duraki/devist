@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/devist.svg)](https://badge.fury.io/rb/devist)
 <p align="center"><img width="200px" src="docs/img/devist-trans.png"/></p>
 
 # devist!
