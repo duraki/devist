@@ -1,5 +1,8 @@
 .idea/
 .DS_Store
+NEWS.md
+build
+*.gem
 Export/html
 !src/Export/html/_default.html.erb
 !src/Export/html/_polar.html.erb
