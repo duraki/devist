@@ -2,6 +2,11 @@
 @author: Halis Duraki <duraki.halis@nsoft.ba>  
 @homepage: https://stacklog.github.io/devist 
 
+### Version 1.1.3 of May 08 2017
++ #added: autosearch default files
++ #fixed: lib to gem
++ #fixed: allow skip compiler signature
+
 ### Version 1.1.2 of Apr 30 2017
 + #added: default & polar theme
 + #added: theme support
