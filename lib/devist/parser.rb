@@ -68,8 +68,8 @@ class Devist::Parser
 
     print "  * Checking if changelog is devist configured ...\n"
     if is_devist.last.chomp != '.devist'
-      abort('  * The file is not configured for devist. Are you missing .devist at the end of the file?')
-      exit
+      print "  * The file is not configured for devist. Are you missing .devist at the end of the file?\n"
+      print "  * Skipping ...\n"
     end
 
     print "  * Found .devist signature.\n"

@@ -16,7 +16,7 @@ class Devist
   attr_reader :parser, :compiler
 
   # Default files to look for
-  @default_search = %w[CHANGELOG RELEASES NEWS]
+  @@default_search = %w[CHANGELOG RELEASES NEWS]
 
   # Init
   def initialize(filename, theme = 'default')
@@ -29,15 +29,26 @@ class Devist
     theme_dir = __dir__ + "/devist/export/html/"
 
     # Check if both theme and filename exists
-    print "  * Location '#{@filename}' ...\n"
     if File.file?(@filename) 
       print "  * File '#{@filename}' exists; continuing ...\n"
     else
       print "  * File '#{@filename}' does NOT exists; exit ...\n"
+      print "  > Do you want to allow devist to search the file for you? (y\/N) "
+      devist_as = STDIN.gets.chomp
+      
+      # Search for changelogs automatically
+      if devist_as.downcase.eql?("y")
+          print "  * Searching for changelog data ...\n"
+          available
+
+          if @@available.count > 0
+            print "  * Try to run with filename #{@@available_list}\n"
+          end
+      end
+          
       exit
     end
 
-    print "  * Theme dir '#{theme_dir} ...\n"
     if File.file?(theme_dir + @themename)
       print "  * Theme '#{@themename}' exists; continuing ...\n"
     else
@@ -45,6 +56,24 @@ class Devist
       exit
     end
 
+  end
+
+  # Auto-search for available changelog
+  def available
+    @@available = []
+    @@available_list = String.new 
+
+    @@default_search.each do |filename|
+      filename.concat(".md")
+      if File.file?(filename)
+        @@available_list.concat(filename + " ")
+        @@available.push(filename)   
+      end
+    end
+
+    print "  * Found #{@@available.count} results.\n"
+
+    @@available.count
   end
 
   # Decompile .md file.
