@@ -1,12 +1,29 @@
 @charset "utf-8";
 @CHARSET "UTF-8";
 
+.btn-follow {
+    position: relative;
+    height: 20px;
+    box-sizing: border-box;
+    padding: 1px 8px 1px 6px;
+    background-color: #1b95e0;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    outline: 0;
+    text-decoration: none;
+}
+
 pre {
     padding: 16px;
     overflow: auto;
     font-size: 105%;
     line-height: 1.45;
-    background-color: #f6f8fa;
+    background-color: rgb(20, 162, 255);
     border-radius: 3px;
     word-wrap: normal;
     margin-top: 10px;
@@ -14,6 +31,8 @@ pre {
 }
 
 code {
+    color: white;
+    font-weight: bold;
     display: inline;
     max-width: auto;
     padding: 0;
@@ -67,7 +86,7 @@ body {
     clear: both;
     padding-bottom: 30px;
     padding-top: 0px;
-    margin-top: 30px; }
+    margin-top: 33px; }
     .footer .menu {
       list-style: none;
       text-align: center;
@@ -82,6 +101,9 @@ body {
         .footer .menu li A {
           text-decoration: none;
           color: #C3C3C3; }
+	.footer .menu li a:hover {
+	  text-decoration: underline;
+	  color: rgb(20, 162, 255); }
 
 .error-wrapper {
   margin: 200px auto 100px;
