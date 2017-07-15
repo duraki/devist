@@ -2,6 +2,9 @@
 @author: Halis Duraki <duraki.halis@nsoft.ba>  
 @homepage: https://stacklog.github.io/devist 
 
+### Version 1.1.4 of May 15 2017
++ #added: pre-push git hook to detect tag
+
 ### Version 1.1.3 of May 08 2017
 + #added: autosearch default files
 + #fixed: lib to gem
