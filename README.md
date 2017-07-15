@@ -150,6 +150,60 @@ Basic requirements for the `changelog.md` file are these:
 * Last line of file **MUST** be `.devist` or compiler will fail 
   - This is to tell **devist** the file is configured for export
 
+## Git integration
+As of Devist v1.1.4, you can integrate a <pre-push> Git hook, located in `hook.sh` file in this
+repository. The only thing you have to do is copy this file to your repository hooks. Example
+follows this:
+
+```
+$ cd dev/repository
+$ cd .git/hooks/ && wget https://raw.githubusercontent.com/stacklog/devist/master/hook.sh 
+$ mv hook.sh pre-push && chmod +x pre-push
+```
+
+Once this **git hook** is added to your repository, you can't push a tag or release until you properly bumped the changelog version. 
+To do so, the script goes through the file `CHANGELOG.md` before pushing the remote release, and check for a valid version. If current tag 
+can't be located in that file, the script exit. 
+
+```
+$ (repo) $ git tag v2.1.1
+$ (repo) $ git push origin v2.1.1
+Devist / tag/hook / pre-push - https://devist.io
+> Pre-push hook activated.
+> Tag detected.
+> Checking for file CHANGELOG.md in this directory ...
+Checking tag version ...
+Stripping non-numeric characters ...
+Detected tag: 2.1.1
+Checking latest TAG in changelog file ...
+Tag not found in CHANGELOG.md ; please bump your version.
+Use --no-verify while to skip this git-hook.
+```
+  
+This is perfect solution if you don't want to push release without changelog bump. So, for above to works correctly, edit your logfile.
+
+```
+$ vim CHANGELOG.md
+
+@project: repo 
+...
+
+### Version 2.1.1 of May 15 2017
++ #added: pre-push git hook to detect tag
+```
+   
+One can change default `CHANGELOG.md` filename to whatever his logfile name is. Make sure to only
+edit `LOGFILE` variable inside the bash script.
+
+In case you really don't care if CHANGELOG.md file consist of `HEAD` tag, you can use `--no-verify`
+to skip the hook.
+  
+Example:
+```
+$ git tag v1.0.0
+$ git push origin v1.0.0 --no-verify
+```
+
 ## Installation
 To install `devist`, run:
 
