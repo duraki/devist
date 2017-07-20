@@ -1,4 +1,5 @@
-[![Gem Version](https://badge.fury.io/rb/devist.svg)](https://badge.fury.io/rb/devist)
+[![Gem Version](https://badge.fury.io/rb/devist.svg)](https://badge.fury.io/rb/devist) [![Build Status](https://travis-ci.org/duraki/devist.svg?branch=master)](https://travis-ci.org/duraki/devist)  
+
 <p align="center"><img width="200px" src="docs/img/devist-trans.png"/></p>
 
 # devist!
