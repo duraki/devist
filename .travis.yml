@@ -11,4 +11,5 @@ before_install:
   - git clone https://github.com/duraki/devist.git devist
   - cd devist
   - gem build devist.gemspec
+  - gem install devist
   - devist --help
