@@ -15,16 +15,14 @@ given file and export beautiful HTML page of release notes.
   
 
 
-**Install Devist**:
+![docs/img/devist_export.png](devist-export-term)
+
+**Install Devist through Gem**:
 
 ```
 $ gem install devist
-```
 
-**Example**:
-
-```
-ruby bin/devist.rb changelog
+$ cd your-project/ && devist changelog
          __          _      __ 
     ____/ /__ _   __(_)____/ /_
    / __  / _ \ | / / / ___/ __/
@@ -77,7 +75,7 @@ $ git clone https://github.com/duraki/devist
 $ cd devist && gem build devist
 $ gem install ./devist
 ```
-
+  
 ## General
 Check [devist changelog](https://devist.io/changelog.html) for showoff. The `devist` is
 built and debugged upon it's changelog file. Ain't that cool?
