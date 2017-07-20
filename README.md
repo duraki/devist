@@ -15,7 +15,7 @@ given file and export beautiful HTML page of release notes.
   
 
 
-![docs/img/devist_export.png](devist-export-term)
+![preview-devist-iterm](docs/img/devist_export.png)
 
 **Install Devist through Gem**:
 
