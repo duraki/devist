@@ -1,4 +1,5 @@
-[![Gem Version](https://badge.fury.io/rb/devist.svg)](https://badge.fury.io/rb/devist) [![Build Status](https://travis-ci.org/duraki/devist.svg?branch=master)](https://travis-ci.org/duraki/devist) [![Code Climate](https://codeclimate.com/github/duraki/devist/badges/gpa.svg)](https://codeclimate.com/github/duraki/devist)
+[![Gem Version](https://badge.fury.io/rb/devist.svg)](https://badge.fury.io/rb/devist) [![Build Status](https://travis-ci.org/duraki/devist.svg?branch=master)](https://travis-ci.org/duraki/devist) [![Code Climate](https://codeclimate.com/github/duraki/devist/badges/gpa.svg)](https://codeclimate.com/github/duraki/devist) [![Dependency
+Status](https://gemnasium.com/duraki/devist.svg)](https://gemnasium.com/duraki/devist)
 
 <p align="center"><img width="200px" src="docs/img/devist-trans.png"/></p>
 
