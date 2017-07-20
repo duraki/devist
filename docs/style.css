@@ -175,7 +175,7 @@ a.download {
   padding-left: 26px;
   text-decoration: none;
   display: inline-block;
-  color: #FFFFFF;
+  color: #282828;
   font-weight: bold;
   font-size: 14px;
   text-transform: uppercase;
@@ -201,7 +201,7 @@ a.download {
     transition: 0.1s ease; }
 
     a.download:hover {
-      background: #2F99EA;
+      background: #000000;
       transition: 0.1s ease; }
 
       .group {
