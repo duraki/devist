@@ -168,14 +168,14 @@ body {
       text-decoration: none; }
 
 a.download {
-  background-color: #14A2FF;
+  background-color: #282828;
   padding-bottom: 14px;
   padding-top: 14px;
   padding-right: 26px;
   padding-left: 26px;
   text-decoration: none;
   display: inline-block;
-  color: #282828;
+  color: #FFFFFF;
   font-weight: bold;
   font-size: 14px;
   text-transform: uppercase;
