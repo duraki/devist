@@ -14,4 +14,5 @@ Gem::Specification.new do |s|
   # Deps
   s.add_development_dependency "coveralls", "~> 0.7"
   s.add_development_dependency "bundler", "~> 1.3"
+  s.add_development_dependency "rake", "~> 12.0"
 end
