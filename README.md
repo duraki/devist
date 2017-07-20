@@ -2,18 +2,18 @@
 <p align="center"><img width="200px" src="docs/img/devist-trans.png"/></p>
 
 # devist!
-A Ruby gem to **export release notes based on your changelog file**.
+A Ruby gem to **export release notes from your `changelog.md`.**.
 
-  
-## How do I devist?
-Let's pretend you are a developer having typical `CHANGELOG.md`, `RELEASES.md`, `NEWS.md` in your project repository. 
-Using **devist**, you can generate and export these notes to `.html` and allow users to check them out without reading 
- ugly markdown format.
- 
+* [#Getting started](#how-do-i-devist) 
+
+## How do I devist? (Getting started)
+- Let's pretend you are a developer having typical `CHANGELOG.md` in your project/repository.  
+
+**By using devist**, you are keeping your logfile clean and readable in specifically crafted format based on Markdown. Not only that, but devist can generate and export these notes to `.html` and integrate export to your webapps, or static pages. 
+   
 The only thing you have to do is run `devist filename` command inside your project directory. **devist** will look for the 
 given file and export beautiful HTML page of release notes.
   
-
 
 ![preview-devist-iterm](docs/img/devist_export.png)
 
@@ -22,7 +22,8 @@ given file and export beautiful HTML page of release notes.
 ```
 $ gem install devist
 
-$ cd your-project/ && devist changelog
+# Example
+$ cd dev/devist && devist changelog
          __          _      __ 
     ____/ /__ _   __(_)____/ /_
    / __  / _ \ | / / / ___/ __/
