@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in tmuxinator.gemspec
+# Specify your gem's dependencies in devist.gemspec
 gemspec
