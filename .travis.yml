@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - "2.0.0"
+  - "2.1.7"
+  - "2.2.3"
+env:
+  - $THEMEDIR=$HOME/.devist-themes
+before_install:
+  - gem install bundler
+  - sudo apt-get update -qq
+  - git clone https://github.com/duraki/devist.git devist
+  - cd devist
+  - gem build devist
+  - devist --help

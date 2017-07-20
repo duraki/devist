@@ -226,9 +226,9 @@ Here is small list of contribution guidelines regarding public themes:
   
 
 
-# Integrations
+## Integrations
   
-## Deploy integration
+### Deploy integration
 One can use `devist` command on his pre-deploy stage to generate changelog on release. Example is presented below (pseudo on Mage configuration):
 
 ```
@@ -242,7 +242,7 @@ deploy:
    - mv changelog.html {your-app}/public/views/
 ```  
 
-## Git integration
+### Git integration
 As of Devist v1.1.4, you can integrate a <pre-push> Git hook, located in `hook.sh` file in this
 repository. The only thing you have to do is copy this file to your repository hooks. Example
 follows as below.
