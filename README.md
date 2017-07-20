@@ -2,7 +2,7 @@
 <p align="center"><img width="200px" src="docs/img/devist-trans.png"/></p>
 
 # devist!
-A Ruby gem to **export release notes** from your `changelog.md`.
+A Ruby gem to **export release notes** from your `changelog.md`. - https://devist.io
 
 ## Table of content
 * [Getting started](#how-do-i-devist-getting-started) 

@@ -23,7 +23,7 @@ pre {
     overflow: auto;
     font-size: 105%;
     line-height: 1.45;
-    background-color: rgb(20, 162, 255);
+    background-color: #282828;
     border-radius: 3px;
     word-wrap: normal;
     margin-top: 10px;
@@ -120,7 +120,7 @@ body {
     font-size: 38px;
     font-weight: 300;
     line-height: 56px;
-    color: #000;
+    color: #484444;
     letter-spacing: 0px;
     clear: both;
     text-align: center;

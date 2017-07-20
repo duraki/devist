@@ -31,7 +31,7 @@ class DevistBinary
   / /_/ /  __/ |/ / (__  ) /_  
   \\__,_/\\___/|___/_/____/\\__/ 
 - Release notes generator.
-  https://github.com/stacklog/devist
+  https://github.com/duraki/devist
 
   Use --help for details.
 
@@ -41,7 +41,7 @@ EOL
   # Print help menu.
   def print_help
     puts <<EOL
-  Use devist to generate beautiful release notes. All you need to have is CHANGELOG.md with 
+  Use devist to export beautiful release notes. All you need to have is CHANGELOG.md with 
   .devist line at the end of the file. 
     
   $ devist          | run devist
