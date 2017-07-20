@@ -5,12 +5,26 @@
 A Ruby gem to **export release notes** from your `changelog.md`.
 
 ## Table of content
-* ### [Getting started](#how-do-i-devist) 
+* [Getting started](#how-do-i-devist-getting-started) 
+* [Installation](#installation) 
+    * [Requirements](#requirements)
+    * [Gem / Automatic](#automatic-installation)
+    * [Manual](#manual-installation)
+* [General](#general) 
+    * [Changelog format](#changelog-format) 
+    * [Why is it useful](#why-is-it-useful)
+    * [Themes](#why-is-it-useful)
+* [Integrations](#integrations)
+    * [Deploy integration](#deploy-integration)
+    * [Git integration](#git-integration)
+* [API](#api)
+* [Contribution](#contribution)
+* [License](#license)
 
 ## How do I devist? (Getting started)
-- Let's pretend you are a developer having typical `CHANGELOG.md` in your project/repository.  
+- A fact is you are a developer having typical `CHANGELOG.md` in your project/repository:  
 
-**By using devist**, you are keeping your logfile clean and readable in specifically crafted format based on Markdown. Not only that, but devist can generate and export these notes to `.html` and integrate export to your webapps, or static pages. 
+*devist**, will help you to keep your logfile clean and readable in specifically crafted format based on Markdown. Not only that, but devist can generate and export these notes to `.html` and offer integration for webapps, static pages and **git**. 
    
 The only thing you have to do is run `devist filename` command inside your project directory. **devist** will look for the 
 given file and export beautiful HTML page of release notes.
@@ -61,13 +75,29 @@ $ cd dev/devist && devist changelog
   
 ## Installation
 
+### Requirements
+To run `devist` on your system you basically don't need anything. We followed best advice as with `vicilog` and made 
+the **devist** be available in the wild without huge dependency list.
+
+Since `devist` is built natively with Ruby components/libs, you can start using **devist** right now.
+
+Check if your system does have at least Ruby 2.0.0 installed.
+
+```
+$ ruby -v
+ruby 2.0.0p648 (.) 
+```
+
+Of course, your project should have `changelog.md` or equivalent so *devist* can parse and export something.
+
+  
 ### Automatic Installation
 To install `devist`, run:
 
 ```
 $ gem install devist
 ```
-
+  
 ### Manual Installation
 For nightly builts, you may want to clone or checkout the branch/nightly and build the gem from
 `.*gemspec`.
@@ -82,7 +112,45 @@ $ gem install ./devist
 Check [devist changelog](https://devist.io/changelog.html) for showoff. The `devist` is
 built and debugged upon it's changelog file. Ain't that cool?
   
-## Why is it useful?
+### Changelog format
+The changelog format we prefer is really easy to remember and understand under various circumstances. Please, use either 
+`$ devist --new` to create a new base skeleton for the changelog file or create your sample like this:
+  
+```
+$ devist --new
+  --snip
+
+  * Generating CHANGELOG.md ...
+  * Output .devist as a way of thinkering ...
+  -
+  ** All done! Continue editing CHANGELOG.md.
+
+$ cat CHANGELOG.md
+@project: MyProject
+@author: Your Name <email@address.com>
+@homepage: https://example.com
+
+### Version 1.0.0 of 20 Jul 2017
++ #added: something goes here
+
+.devist
+```
+  
+Basic requirements for the `changelog.md` file are these:
+  
+* There are optional `@project`, `@author`, and `@homepage` references
+  - We advice you to use them and add two spaces after every line (line break) for readability.
+  
+* To register a version, use `### Version x.x(.x) of Mon(th) dd YYYY`
+  - Any date format is supported but keep it consistent.
+  
+* To register a change, use `+ #[tag]: [change]`
+  - Tags are: `added`, `fixed`, `removed`, `improved`.
+  - Example: + `#fixed: issue #39 - hell on earth`.
+  
+* Last line of file can be anything, `.devist` is just a tag from init.  
+  
+### Why is it useful?
 Before **devist**, I made [vicilog](https://github.com/duraki/vicilog). Although it got attention on the original 
 repository, the system was not dynamic, and very, very basic. You had to enter all changelogs in raw RIPL system and you 
 couldn't reuse the `json` properly.
@@ -119,7 +187,7 @@ Here are the main reason why you should use **devist**:
 
 * *More soon heh*
 
-## Themes (+ contribution)
+### Themes (+ contribution)
 Refer to default themes in repository for contribution help and future documentation.
   
 Easiest way to create theme is to bundle it in one static page, although you can extend it how ever
@@ -156,61 +224,7 @@ Here is small list of contribution guidelines regarding public themes:
 * The theme should follow the in-line and in-file style (no external stylesheets / JS / ads / tracking are allowed)
 * Google Fonts is allowed
   
-## Requirements
-To run `devist` on your system you basically don't need anything. We followed best advice as with `vicilog` and made 
-the **devist** be available in the wild without huge dependency list.
 
-Since `devist` is built natively with Ruby components/libs, you can start using **devist** right now.
-
-Check if your system does have at least Ruby 2.0.0 installed.
-
-```
-$ ruby -v
-ruby 2.0.0p648 (.) 
-```
-
-Of course, your project should have `changelog.md` or equivalent so *devist* can parse and export something.
-
-**You can install devist as you do with any other gem.** - `gem install devist`
-
-## Changelog format
-The changelog format we prefer is really easy to remember and understand under various circumstances. Please, use either 
-`$ devist --new` to create a new base skeleton for the changelog file or create your sample like this:
-  
-```
-$ devist --new
-  --snip
-
-  * Generating CHANGELOG.md ...
-  * Output .devist as a way of thinkering ...
-  -
-  ** All done! Continue editing CHANGELOG.md.
-
-$ cat CHANGELOG.md
-@project: MyProject
-@author: Your Name <email@address.com>
-@homepage: https://example.com
-
-### Version 1.0.0 of 20 Jul 2017
-+ #added: something goes here
-
-.devist
-```
-  
-Basic requirements for the `changelog.md` file are these:
-  
-* There are optional `@project`, `@author`, and `@homepage` references
-  - We advice you to use them and add two spaces after every line (line break) for readability
-  
-* To register a version, use `### Version x.x(.x) of Mon(th) dd YYYY`
-  - Any date format is supported but keep it consistent
-  
-* To register a change, use `+ #[tag]: [change]`
-  - Tags are: `added`, `fixed`, `removed`, `improved`
-  - Example: + `#fixed: issue #39 - hell on earth`
-  
-* Last line of file can be anything, `.devist` is just a tag from us.  
-  
 
 # Integrations
   
