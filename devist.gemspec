@@ -10,4 +10,8 @@ Gem::Specification.new do |s|
   s.homepage    =
     'https://github.com/stacklog/devist'
   s.license     = 'MIT'
+
+  # Deps
+  s.add_development_dependency "coveralls", "~> 0.7"
+  s.add_development_dependency "bundler", "~> 1.3"
 end
