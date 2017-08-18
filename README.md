@@ -4,7 +4,7 @@ Status](https://gemnasium.com/duraki/devist.svg)](https://gemnasium.com/duraki/d
 <p align="center"><img width="200px" src="docs/img/devist-trans.png"/></p>
 
 # devist!
-A Ruby gem to **export release notes** from your `changelog.md`. - https://devist.io
+A Ruby gem to **keep proper changelog file for all your pojects** - https://devist.io
 
 ## Table of content
 * [Getting started](#how-do-i-devist-getting-started) 
@@ -24,14 +24,14 @@ A Ruby gem to **export release notes** from your `changelog.md`. - https://devis
 * [License](#license)
 
 ## How do I devist? (Getting started)
-- A fact is you are a developer having typical `CHANGELOG.md` in your project/repository:  
+- You are a developer with a typical `changelog.md` file in your project:
 
-*devist**, will help you to keep your logfile clean and readable in specifically crafted format based on Markdown. Not only that, but devist can generate and export these notes to `.html` and offer integration for webapps, static pages and **git**. 
+**devist**, helps you to: 
+* keep your logfile clean and readable,
+* export these file to `*.html` with your theme choice
+* integrated in git or deployment
+* offer number of features ...
    
-The only thing you have to do is run `devist filename` command inside your project directory. **devist** will look for the 
-given file and export beautiful HTML page of release notes.
-  
-
 ![preview-devist-iterm](docs/img/devist_export.png)
 
 **Install Devist through Gem**:
