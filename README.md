@@ -4,7 +4,7 @@ Status](https://gemnasium.com/duraki/devist.svg)](https://gemnasium.com/duraki/d
 <p align="center"><img width="200px" src="docs/img/devist-trans.png"/></p>
 
 # devist!
-A Ruby gem to **keep proper changelog file for all your pojects** - https://devist.io
+A Ruby gem to help you: **keep proper changelog for your pojects**. - https://devist.io
 
 ## Table of content
 * [Getting started](#how-do-i-devist-getting-started) 
@@ -28,19 +28,19 @@ A Ruby gem to **keep proper changelog file for all your pojects** - https://devi
 
 **devist**, helps you to: 
 * keep your logfile clean and readable,
-* export these file to `*.html` with your theme choice
-* integrated in git or deployment
-* offer number of features ...
+* export these file to `*.html`, 
+* integrated in git and deployment,
+* offer number of other features ...
    
 ![preview-devist-iterm](docs/img/devist_export.png)
 
 **Install Devist through Gem**:
 
-```
+```sh
 $ gem install devist
 
 # Example
-$ cd dev/devist && devist changelog
+$ mkdir -p $HOME/dev/changelog && devist --new && devist changelog
          __          _      __ 
     ____/ /__ _   __(_)____/ /_
    / __  / _ \ | / / / ___/ __/
@@ -60,11 +60,6 @@ $ cd dev/devist && devist changelog
   * Extracting project name ... [devist]
   * Extracting project author ... [Halis Duraki <duraki.halis@nsoft.ba>]
   * Extracting project homepage ... [https://devist.io]
-  * Found version 1.1.3; registered ...
-  * Found version 1.1.2; registered ...
-  * Found version 1.1.1; registered ...
-  * Found version 1.1.0; registered ...
-  * Found version 1.0.1; registered ...
   * Found version 1.0.0; registered ...
   -
   * Trying to compile set ...
@@ -146,9 +141,9 @@ Basic requirements for the `changelog.md` file are these:
 * To register a version, use `### Version x.x(.x) of Mon(th) dd YYYY`
   - Any date format is supported but keep it consistent.
   
-* To register a change, use `+ #[tag]: [change]`
-  - Tags are: `added`, `fixed`, `removed`, `improved`.
-  - Example: + `#fixed: issue #39 - hell on earth`.
+* To register a change, use `+ #[tag]: (change)`
+  - Tags are: **added**, **fixed**, **removed**, **improved**.
+  - Example: `+ #fixed: issue #39 - hell on earth`.
   
 * Last line of file can be anything, `.devist` is just a tag from init.  
   
@@ -166,6 +161,7 @@ Here are the main reason why you should use **devist**:
   - Markdown parsed (we followed GitHub style)
   - Devist exported (with any theme of your choice)
   - Inspired by keepachangelog
+  - Can be sorted using `--sort` argument
   
 * Devist will sort your tags by priority in this order: **added**; **fixed**; **removed**; **improved**
   - We still allow theme contributors to reuse order of tags how ever they want (yayy!)
