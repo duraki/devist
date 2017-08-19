@@ -1,0 +1,91 @@
+html {
+    font-family: 'EB Garamond', serif;
+}
+
+body {
+    height: 2500px;
+    background-image: url('img/kick-u.png');
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+    background-attachment: fixed;
+}
+
+.container {
+    margin-top: 10%;
+    margin-left: 45%;
+}
+
+.title {
+    font-family: 'EB Garamond', serif;
+    font-size: 24px;
+}
+
+.code-gem-install {
+    display: inline-block;
+    background-color: #000000;
+    color: rgba(255, 255, 255, 0.94);
+    font-family: 'EB Garamond';
+    font-size: 20px;
+    height: 50px;
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 500px;
+}
+
+.code-gem-install::before {
+    content: '$';
+    color: rgb(154, 154, 154);
+    margin-right: 10px;
+}
+
+.title-other {
+    font-family: 'EB Garamond', serif;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.container-section {
+    margin-top: 70px;
+}
+
+
+.container-block-code {
+    /*margin-top: 30px;*/
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 1);
+    width: 500px;
+    padding: 10px 10px 10px 10px;
+    height: auto;
+}
+
+.container-block-code-text {
+    padding-left: 20px;
+    color: rgb(228, 218, 218);
+    font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+    font-size: 13px;
+}
+
+.container-block-section {
+    padding: 10px 10px 10px 10px;
+    background-color: rgba(223, 208, 208, 0.1);    
+    min-height: 10px;
+    width: 500px;
+}
+
+.container-block-text {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+ul {
+    display: inline-block;
+    margin-right: 60px;
+}
+
+li {
+    font-size: 19px;
+}
+
+a {
+    color: black;
+}
