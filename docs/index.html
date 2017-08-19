@@ -3,109 +3,146 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Devist ‒ Beautiful release notes generator.</title>
+
     <link rel="canonical" href="/" />
-    <meta name="description" content="Devist is beautiful release notes generator built for developers.">
-    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="late17.css">
 
-    <!-- Facebook -->
-    <meta property="og:title" content="https://devist.io/ ‒ Generate release notes from CHANGELOG file.">
-    <meta property="og:description" content="Devist is a release notes generator built for developers.">
-    <meta property="og:image" content="img/devist-trans.png">
+    <meta name="description" content="use devist to keep changelog file clean
+    and properly formatted" />
+    <meta name="viewport" content="width=device-width" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" value="player">
-    <meta name="twitter:site" value="@devil_tux">
-    <meta name="twitter:title" value="https://devist.io">
-    <meta name="twitter:description" value="Release notes from your Changelog.md.">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond"
+          rel="stylesheet">
 
-    <meta name="twitter:player:width" value="506">
-    <meta name="twitter:player:height" value="490">
+    <title>Devist - Keep your changelog clean.</title>
+</head> 
+<html>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <div class="container">
+        <p class="title">Proper changelog or we will kick your ass.</p>
 
-<body id="section-main">
+        <code class="code-gem-install"> gem install devist </code>
 
-<div class="container">
+        <!-- what's the fuss -->
+        <div class="container-section">
+            <p class="title-other">What's the fuss?</p>
 
-    <div class="header">
-        <ul class="menu">
-            <li><a class="nav-main" href="#">Devist</a>
-            <li><a class="nav-docs" href="https://github.com/duraki/devist/blob/master/README.md">README</a>
-            <li><a class="nav-docs" href="https://github.com/duraki/devist/wiki/API">API</a>
-            <li><a class="nav-blog" href="https://github.com/duraki/devist">GitHub</a>
-        </ul>
-    </div>
-
-    <div class="main">
-        <h1>Export <strong>release notes</strong> from markdown.</h1>
-
-        <div id="logo"><img src="img/devist-trans.png" style="max-width: 200px"/></div>
-
-        <div class="mainactions">
-            <a href="changelog.html" class="download" id="download">View releases</a><br><br>
-            <small style="color: rgba(146, 131, 131, 0.57);">Releases page generated with <b>devist</b></small>
+            <div class="container-block-section">
+                <p class="container-block-text">
+                    Changelog files are useful. You can `cat` it out 
+                    and see latest or whatever change in the past? Grep version? It’s 
+                    like a textual versioning system or something.
+                    <br><br>
+                    <b>Devist</b> keeps proper changelog for any of your projects. 
+                </p>
+            </div>
         </div>
 
-        <h1><strong>Install</strong></h1>
-        <pre> <code>gem install devist</code> </pre>
+        <!-- what it offers -->
+        <div class="container-section">
+            <p class="title-other">What it offers?</p>
 
-        <h1><strong>Touch</strong></h1>
-        <pre> <code>cd ~/dev/your_project/ && touch CHANGELOG.md</code></pre>
+            <div class="container-block-section">
+                <p class="container-block-text">
+                    Just some of the stuff that Devist offers out of the box:
+                    <br>
 
-        <h1><strong>Generate</strong></h1>
-        <pre> <code>cd ~/dev/your_project && devist changelog</code> </pre>
-        <br><br>
-        <small style="color: rgba(146, 131, 131, 0.57);">Example of devist* changelog.md</small><br><br>
-        <img src="img/convert.png" alt="markdown to html" />
+		      <ul>
+                <li>Export w/ themes</li>
+                <li>Manipulate raw</li>
+                <li>Readable format</li>
+                  </ul>
+                  <ul>
+                <li>Deployment hook</li>
+                <li>Git hook</li>
+                <li>API</li>
+		      </ul>
+
+                </p>
+            </div>
+        </div>
+
+
+        <!-- how to use it -->
+        <div class="container-section">
+            <p class="title-other">How to use it?</p>
+
+            <div class="container-block-section">
+                <p class="container-block-text">
+                    Simple as 1, 2, 3. Write your project changelog in `devist` format:
+                    <br>
+                </p>
+            </div>
+
+            <div class="container-block-code">
+                <p class="container-block-code-text">### Version 1.0.0 of Aug 15
+                2017<br>
+                + #added: some feature here<br>
+                + #fixed: some bug that now is past<br><br>
+                
+                # or run devist --new to init new changelog file</p>
+            </div>
+
+            <div class="container-block-section">
+                <p class="container-block-text">
+                    Run Devist from same directory to generate static html:
+                    <br>
+                </p>
+            </div>
+
+            <code class="code-gem-install"> devist changelog </code>
+
+            <div class="container-block-section">
+                <p class="container-block-text">
+                    Generated results as seen on <a href="changelog.html">release
+                        notes</a>.
+                    <br>
+                </p>
+            </div>
+
+            <div class="container-block-section" style="margin-top: 30px;">
+                <p class="container-block-text">
+                    Use help argument to see all available cli commands:
+                    <br>
+                </p>
+            </div>
+
+            <code class="code-gem-install"> devist --help </code>
+        </div>
+
+        <!-- more info -->
+        <div class="container-section">
+            <p class="title-other">More info</p>
+
+            <div class="container-block-section">
+                <p class="container-block-text">
+                    Devist is open-source and official repository is located at
+                    <a href="https://github.com/duraki/devist">duraki/devist</a>.
+                        You can also read full documentation in the repo README.
+                        <br><br>
+                        API is documented using YARD and is available at <a
+                   href="www.rubydoc.info/gems/devist/">Rubydoc</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- credits section -->
+        <div class="container-section">
+            <p class="title-other">Author & Credits</p>
+
+            <div class="container-block-section">
+                <p class="container-block-text">
+                The tool and website is developed and designed by Halis Duraki
+                (@duraki). You can write issues or request a feature if that
+                will help you keep better changelog. Props to people who support
+                me.<br><br>
+
+                My <a href="https://twitter.com/devil_tux">twitter</a>, <a
+                      href="https://github.com/duraki">github</a> and <a
+                      href="https://duraki.github.io">blog</a>.
+                </p>
+            </div>
+        </div>
     </div>
-
-    <div class="footer">
-        <ul class="menu">
-            <li><a href="https://github.com/duraki">halis duraki &copy; 2017</a>
-            <li><a href="https://github.com/duraki/devist/issues">issues</a>
-            <li><a href="https://github.com/duraki/devist">repo</a>
-
-            <li class="follow">
-		<a href="https://twitter.com/devil_tux" class="twitter-follow-button" data-show-count="false">Follow @duraki</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </li>
-
-        </ul>
-
-	<ul class="menu">
-		<li style="font-size: x-small;">designed by <a href="https://github.com/duraki">duraki</a> / inspired by <a href="https://numi.io">numi</a></li>
-	</ul>
-    </div>
-</div>
-
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-86651245-3', 'auto');
-  ga('send', 'pageview');
-</script>
-
-</body>
 
 </html>
