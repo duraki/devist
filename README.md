@@ -288,7 +288,7 @@ $ git push origin v1.0.0 --no-verify
 
 
 ## API
-Refer to project [wiki](https://github.com/duraki/devist/wiki) for API documentation.
+API is documented at [rubydoc](http://www.rubydoc.info/gems/devist/1.1.4). Refer to project [wiki](https://github.com/duraki/devist/wiki) for some more documentation.
 
 ## Contribution
 All contribution on **devist** project, **devist** themes, or overall code or documentation in general is highly appreciated.
@@ -297,3 +297,8 @@ Please refer to [CONTRIBUTION](CONTRIBUTION.md) file for more details.
 ## License
 Devist is released under the [MIT License](http://www.opensource.org/licenses/MIT).
 
+## As seen on:
+- [Rubygems.org](https://rubygems.org/gems/devist)
+- [Bestgems.org](http://bestgems.org/gems/devist)
+- [Versioneye.com](https://www.versioneye.com/ruby/devist/1.1.4)
+- [API Rubydoc.info](http://www.rubydoc.info/gems/devist/1.1.4)

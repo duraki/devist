@@ -1,19 +1,21 @@
 require 'date'
 
-# parser.rb
-# This file is a part of the devist package.
-# Halis Duraki <duraki.halis@nsoft.ba>
+# Base class for extracting raw markdown file. Provides a method for extraction
+# project info and changelog dataset. Checks for a proper devist format
+# structure.
 #
-# Parser will allow a building routine for the given
-# changelog by investigating every line in the file.
-# The Parser created project info, and build changelog,
-# but it also check if the given file is proper devist
-# format.
+# @author Halis Duraki
+# @!attribute [r] count
+#     @return project [Object] project model data
+#     @return changelog [Object] changelog model data
 class Devist::Parser
 
   attr_reader :project, :changelog
 
-  # Project builder.
+  # Build and extract project details by front-matter.
+  #
+  # @param [String] line to cmp to
+  # @return [String] project detail
   def build_info(line)
     case line
     when /@project:+/
@@ -28,13 +30,19 @@ class Devist::Parser
     end
   end
 
-  # Changelog builder.
+  # Build changelog version and changetags.
+  #
+  # @param [String] line to cmp to
+  # @return [Object] built changelog
   def build_changelog(line)
     build_version(line)
     build_tags(line)
   end
 
-  # Build tags.
+  # Build changelog tags and changes.
+  #
+  # @param [String] line to cmp to
+  # @return [Object] changelog tag
   def build_tags(line)
     case line
     when /#added.+/
@@ -48,7 +56,10 @@ class Devist::Parser
     end
   end
 
-  # Build version.
+  # Build changelog version.
+  #
+  # @param [String] line to cmp to
+  # @return [Object] changelog version
   def build_version(line)
     case line
       when /### Version+/
@@ -58,7 +69,12 @@ class Devist::Parser
     end
   end
 
-  # Is file devist configured.
+  # Check for proper devist file structure.
+  #
+  # @param [String] file to validate
+  # @return [Bool] proper file structure
+  #
+  # @deprecated devist is now being built to guess file structure
   def devist?(file_name)
     is_devist = File.open(file_name).to_a
 
@@ -75,7 +91,10 @@ class Devist::Parser
     print "  * Found .devist signature.\n"
   end
 
-  # Line parser.
+  # Parse given line and detect linechange.
+  #
+  # @param [String] file to parse
+  # @return [Object] changelog data
   def parse_data(file_name)
     @project = Devist::Project.new
     @changelog = []

@@ -1,24 +1,22 @@
-# devist.rb
-# This file is a part of the devist package.
-# Halis Duraki <duraki.halis@nsoft.ba>
+# Base class initializing kernel and CLI utilities. Provides default
+# value for compiler.
 #
-# This is the place where the ep action is being taken.
-# Devist check if setup is ok and proceed with parsing
-# and creating the static export.
+# @author Halis Duraki
+# @!attribute [r] count
+#     @return parser [Object] module for parsing data init 
+#     @return compiler [Object] module for compiling data init
 class Devist
-
-  #
-  # @project:  stacklog/devist
-  # @author:   Halis Duraki <duraki.halis@nsoft.ba>
-  # @homepage: https://github.com/stacklog/devist
-  #
 
   attr_reader :parser, :compiler
 
-  # Default files to look for
+  # Register default files to search for.
   @@default_search = %w[CHANGELOG RELEASES NEWS]
 
-  # Init
+  # Initialize Devist command line interface. 
+  #
+  # @param [String] changelog file
+  # @param [String] export/html theme style 
+  # @return self
   def initialize(filename, theme = 'default')
   
     @parser = Parser.new
@@ -58,7 +56,9 @@ class Devist
 
   end
 
-  # Auto-search for available changelog
+  # Autosearch default & available changelog in working directory.
+  #
+  # @return [Integer] found logfile 
   def available
     @@available = []
     @@available_list = String.new 
@@ -76,13 +76,17 @@ class Devist
     @@available.count
   end
 
-  # Decompile .md file.
+  # Decompile markdown file to raw data.
+  #
+  # @return [Object] project data
   def decompile
     @parser.parse_data(@filename)
     @parser.project
   end
 
-  # Recompile .md file.
+  # Recompile markdown file to exported static HTML output.
+  #
+  # @return [Object] compiler 
   def recompile
     @compiler = Compiler.new(@parser.project, @parser.changelog, @themename)
     @compiler.compile_data

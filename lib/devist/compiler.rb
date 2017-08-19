@@ -1,23 +1,24 @@
 require 'erb'
 
-# compiler.rb
-# This file is a part of the devist package.
-# Halis Duraki <duraki.halis@nsoft.ba>
+# Abstract compiler class takes argumented input of project data and export
+# theme. Object consists of version listing, save operations, binding and
+# export. 
 #
-# This is the main compiler class. It takes arguments
-# project (model), changelog (model), and theme name.
-# Object offers a version listing plus save operation
-# and binding to the theme erb.
+# @author Halis Duraki
 class Devist::Compiler
 
-  # Init.
+  # Initialize compiler instance with given arguments.
+  #
+  # @param [String] project name 
+  # @param [Object] changelog model 
+  # @param [String] export theme
   def initialize(project, changelog, theme)
     @project = project
     @changelog = changelog
     @theme = theme
   end
 
-  # Save compiled.
+  # Compile & save changelog set to static html using erb.
   def save
     print "  -\n"
     print "  * Trying to compile set ...\n"
@@ -38,7 +39,9 @@ class Devist::Compiler
     print "  ** All done! Check changelog.html file in your browser :)\n"
   end
 
-  # Compile data.
+  # Compile given changelog by version and save file. 
+  #
+  # @return #{save}
   def compile_data
     @changelog.each do |version|
       print "  * Found version #{version.version}; registered ...\n"
