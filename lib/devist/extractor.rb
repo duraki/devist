@@ -6,6 +6,8 @@ class Devist::Extractor
 
   class << self
 
+    attr_accessor :keepachangelog
+
     # Match version pattern.
     #
     # @param [String] line to cmp to
