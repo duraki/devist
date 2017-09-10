@@ -194,6 +194,7 @@ EOL
 
   # Fill new changelog.
   def thinkering(new)
+    print "  * Creating new changelog #{"CHANGELOG".blue} ...\n"
     new.puts("@project: #{File.basename(Dir.pwd)} ")
     new.puts("@author: #{name.strip} <#{email.strip}>  ")
     new.puts("@homepage: #{origtoweb}  ")
@@ -207,9 +208,11 @@ EOL
 
   # Decompile ep.
   def decompile(file_name, theme_name = 'default')
-    print "  * devist will try to generate export for file '#{file_name}' with theme '#{theme_name}'\n"
+    print "  * devist will try to generate export for file '#{file_name.green}' with theme '#{theme_name.green}'\n"
 
     @devist = Devist.new(file_name, theme_name)
+    @devist.get_format
+    #print "  * devist format guess: #{@devist.get_format}\n"
     @devist.decompile
     @devist.recompile
   end
