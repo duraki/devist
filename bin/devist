@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'devist'
+require 'colorize'
 
 ##############################################################
 #
@@ -22,6 +23,17 @@ require 'devist'
 # arguments.
 class DevistBinary
 
+  # Print getting started/usage.
+	def print_start
+    puts <<EOL 
+
+  Use --help for details.
+
+  $ #{"devist init".green} to initialize a new changelog
+
+EOL
+	end
+
   # Print banner image.
   def print_logo
     puts <<EOL
@@ -31,30 +43,46 @@ class DevistBinary
   / /_/ /  __/ |/ / (__  ) /_  
   \\__,_/\\___/|___/_/____/\\__/ 
 - Release notes generator.
-  https://github.com/duraki/devist
+  #{"https://devist.io".yellow} - Halis Duraki <duraki@linuxmail.org>
 
-  Use --help for details.
+
+EOL
+  end
+
+  # Print small about / info msg
+  def print_info
+    puts <<EOL
+  Use devist to keep & export beautiful release notes. Use syntax 
+  defined by devist or keepachangelog standards. Various integration 
+  supported, including `git` and `deployment` hooks. 
 
 EOL
   end
 
   # Print help menu.
   def print_help
+    print_info
+
     puts <<EOL
-  Use devist to export beautiful release notes. All you need to have is CHANGELOG.md with 
-  .devist line at the end of the file. 
+
+  # To initialize a new changelog use:
+  
+  $ #{"devist init".green}
     
-  $ devist          | run devist
-  $ devist --help   | usage / this menu
-  $ devist --v      | show current version
-  $ devist --new    | create changelog template 
+  -
+  # Other commands:
+  $ #{"devist".green}          | run devist cli
+  $ #{"devist --help".green}   | usage / this menu
+  $ #{"devist --v".green}      | show current version
   
   - 
-  $ devist file_name theme_name
+  # Generate HTML output:
+  $ #{"devist [CHANGELOG] [THEME]".green}
 
   Example:
-  $ devist changelog
-  $ devist changelog polar
+  $ #{"devist changelog".green}
+  $ #{"devist changelog polar".green}
+
 EOL
   end
 
@@ -69,6 +97,11 @@ EOL
       return theme
     end
 
+    if @arguments[0].nil?
+      print_info
+      print_start
+    end
+
     # Check other arguments
     case @arguments[0]
     when '--help'
@@ -76,11 +109,14 @@ EOL
     when '--v'
       version
     when '--new'
+      create # Deperecated version
+    when 'init'
       create  # Create new changelog (fresh project)
     else
       default # Try to export with filename and default theme
       return
     end
+
   end
 
   # Generate with default theme.
