@@ -8,9 +8,28 @@ require 'date'
 # @!attribute [r] count
 #     @return project [Object] project model data
 #     @return changelog [Object] changelog model data
+#     @return format [String] changelog format (devist|keepachangelog)
 class Devist::Parser
 
-  attr_reader :project, :changelog
+  attr_reader :project, :changelog, :format
+
+  # Guess file changelog format
+  # Compare against devist and keepachangelog
+  #
+  # @return [String] format
+  def guess_format(file_name)
+    File.foreach(file_name) do |line|
+      case line
+      when /### [+/
+        format = 'keepachangelog'
+      when /### V+/
+        format = 'devist'
+      end
+    end
+
+    self.format = format
+    format
+  end
 
   # Build and extract project details by front-matter.
   #
@@ -74,7 +93,8 @@ class Devist::Parser
   # @param [String] file to validate
   # @return [Bool] proper file structure
   #
-  # @deprecated devist is now being built to guess file structure
+  # @deprecated devist is now being built to guess file structure based on
+  # keepachangelog or devist format, whichever the end user prefer
   def devist?(file_name)
     is_devist = File.open(file_name).to_a
 
