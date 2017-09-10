@@ -23,7 +23,7 @@ A Ruby gem to help you: **keep proper changelog for your pojects**. - https://de
 * [Contribution](#contribution)
 * [License](#license)
 
-![devist-term](docs/img/devist-term.png)
+![devist-term](docs/img/devist-cli.png)
 
 ## How do I devist? (Getting started)
 - You are a developer with a typical `changelog.md` file in your project:
