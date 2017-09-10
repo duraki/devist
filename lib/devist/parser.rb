@@ -17,7 +17,7 @@ class Devist::Parser
   # Compare against devist and keepachangelog
   #
   # @return [String] format
-  def guess_format(file_name)
+  def format?(file_name)
     File.foreach(file_name) do |line|
       case line
       when /### [+/
@@ -26,6 +26,9 @@ class Devist::Parser
         format = 'devist'
       end
     end
+
+    p "JIFDJAIJFAI"
+    p format
 
     self.format = format
     format
@@ -120,9 +123,12 @@ class Devist::Parser
     @changelog = []
     @version = -1 # Start from 0
 
+    print "JAJAJ"
     devist?(file_name) # Check if file is configured for usage
+    structure = format?(file_name)
 
     print "  * Building model from file data ...\n"
+    print "  * Format structure guess: #{structure}\n"
 
     File.foreach(file_name) do |line|
       build_info(line) # Build project info

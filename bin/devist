@@ -211,9 +211,9 @@ EOL
     print "  * devist will try to generate export for file '#{file_name.green}' with theme '#{theme_name.green}'\n"
 
     @devist = Devist.new(file_name, theme_name)
-    @devist.get_format
-    #print "  * devist format guess: #{@devist.get_format}\n"
     @devist.decompile
+    #print "  * devist format guess: #{@devist.get_format}\n"
+    
     @devist.recompile
   end
 

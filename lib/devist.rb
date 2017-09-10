@@ -76,13 +76,6 @@ class Devist
     @@available.count
   end
 
-  # Stupid guesser based on fileline
-  #
-  # @return [String] Format frame
-  def get_format
-    @parser.guess_format(@file_name)
-  end
-
   # Decompile markdown file to raw data.
   #
   # @return [Object] project data
