@@ -29,7 +29,7 @@ class DevistBinary
 
   Use --help for details.
 
-  $ #{"devist init".green} to initialize a new changelog
+  $ #{"devist init".blue} to initialize a new changelog
 
 EOL
 	end
