@@ -23,6 +23,8 @@ A Ruby gem to help you: **keep proper changelog for your pojects**. - https://de
 * [Contribution](#contribution)
 * [License](#license)
 
+![devist-term](docs/img/devist-term.png)
+
 ## How do I devist? (Getting started)
 - You are a developer with a typical `changelog.md` file in your project:
 
@@ -32,8 +34,6 @@ A Ruby gem to help you: **keep proper changelog for your pojects**. - https://de
 * integrated in git and deployment,
 * offer number of other features ...
    
-![preview-devist-iterm](docs/img/devist_export.png)
-
 **Install Devist through Gem**:
 
 ```sh
