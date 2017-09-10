@@ -94,5 +94,7 @@ class Devist
 
 end
 
+require 'devist/helper'
 require 'devist/parser'
 require 'devist/compiler'
+require 'devist/version'
