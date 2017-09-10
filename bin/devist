@@ -151,7 +151,7 @@ EOL
 
     if File.file?(Dir.pwd + '/CHANGELOG.md')
       print "  * File CHANGELOG.md already exists. Backup it, remove, and try again.\n"
-      print "  * You may try to run 'devist changelog' to try generate the export.\n"
+      print "  * You may try to run '#{"devist changelog".blue}' to try generate the export.\n"
       abort
     end
 
@@ -162,11 +162,41 @@ EOL
     print "  ** All done! Continue editing CHANGELOG.md.\n"
   end
 
+  def name
+    `git config --global user.name`
+  end
+
+  def email
+    `git config --global user.email`
+  end
+
+  def origtoweb
+    remote = `git config --get remote.origin.url`
+    remote  = 'git@github.com:duraki/devist.git'
+
+    web = remote[/@(.*?):/m, 1]
+    if web.empty?  
+        web = "https://github.com/" 
+    end
+
+    user = remote[/:(.*?)\//m, 1]
+    if user.empty?  
+        user = "<username>"
+    end
+
+    project = remote[/\/(.*?)\./m, 1]
+    if project.empty?  
+        project = "#{File.basename(Dir.pwd)}"
+    end
+
+    "https://#{web}/#{user}/#{project}"
+  end
+
   # Fill new changelog.
   def thinkering(new)
-    new.puts('@project: MyProject  ')
-    new.puts('@author: Your Name <email@address.com>  ')
-    new.puts('@homepage: https://example.com  ')
+    new.puts("@project: #{File.basename(Dir.pwd)} ")
+    new.puts("@author: #{name.strip} <#{email.strip}>  ")
+    new.puts("@homepage: #{origtoweb}  ")
     new.puts('')
     new.puts("### Version 1.0.0 of #{Time.now.strftime("%d %b %Y")}")
     new.puts('+ #added: something goes here')
