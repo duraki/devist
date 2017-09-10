@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version     = '1.1.4'
   s.executables = ['devist']
   s.summary     = 'Keep proper changelog'
-  s.description = 'A Ruby gem that keeps track of your changelog and help you deal with releases. Support keepachangelog and devist format..'
+  s.description = 'A Ruby gem that keeps track of your changelog. Support keepachangelog format and offers HTML export.'
   s.authors     = ['Halis Duraki']
   s.email       = 'duraki@linuxmail.org'
   s.files       = ['lib/devist/helper.rb', 'lib/devist/version.rb', 'lib/devist.rb', 'lib/devist/compiler.rb', 'lib/devist/extractor.rb', 'lib/devist/parser.rb', 'lib/devist/models/project.rb', 'lib/devist/models/tags.rb', 'lib/devist/models/version.rb', 'lib/devist/export/html/_default.html.erb', 'lib/devist/export/html/_polar.html.erb']
@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
     'https://devist.io'
   s.license     = 'MIT'
 
-  
   # Deps
   s.add_dependency "colorize", "~> 0.8.1"
 
