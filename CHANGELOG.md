@@ -2,6 +2,10 @@
 @author: Halis Duraki <duraki@linuxmail.org>  
 @homepage: https://devist.io/  
 
+### Version 1.1.5 of Sept 10 2017
++ #added: colorized output on bin
++ #fixed: use `init` to initialize changelog #3
+
 ### Version 1.1.4 of May 15 2017
 + #added: pre-push git hook to detect tag
 
