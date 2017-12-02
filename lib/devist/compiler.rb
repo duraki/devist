@@ -13,9 +13,9 @@ class Devist::Compiler
   # @param [Object] changelog model 
   # @param [String] export theme
   def initialize(project, changelog, theme)
-    @project = project
-    @changelog = changelog
-    @theme = theme
+    @project    = project
+    @changelog  = changelog
+    @theme      = theme
   end
 
   # Compile & save changelog set to static html using erb.
@@ -24,8 +24,7 @@ class Devist::Compiler
     print "  * Trying to compile set ...\n"
 
     print "  * Creating new export from erb ...\n"
-    asset = "#{__dir__}/export/html/#{@theme}"
-    erb = ERB.new(File.open(asset).read, 0, '>')
+    erb = ERB.new(File.open(@theme).read, 0, '>')
 
     print "  * Injecting parsed results to the erb ...\n"
     erb.result binding
@@ -36,12 +35,12 @@ class Devist::Compiler
     end
 
     print "  -\n"
-    print "  ** All done! Check changelog.html file in your browser :)\n"
+    print "  ** All done! Check changelog.html file in your browser :)\n".green
   end
 
   # Compile given changelog by version and save file. 
   #
-  # @return #{save}
+  # @return [Object] save
   def compile_data
     @changelog.each do |version|
       print "  * Found version #{version.version}; registered ...\n"

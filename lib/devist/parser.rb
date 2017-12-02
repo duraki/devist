@@ -20,13 +20,13 @@ class Devist::Parser
     case line
     when /@project:+/
       @project.name = Devist::Extractor.extract_info(line)
-      print "  * Extracting project name ... [#{@project.name.chomp.strip!}]\n"
+      print "  * Extracting project name       ...   [#{@project.name.chomp.strip!}]\n"
     when /@author:.+/
       @project.author = Devist::Extractor.extract_info(line)
-      print "  * Extracting project author ... [#{@project.author.chomp.strip!}]\n"
+      print "  * Extracting project author     ...   [#{@project.author.chomp.strip!}]\n"
     when /@homepage:.+/
       @project.homepage = Devist::Extractor.extract_info(line)
-      print "  * Extracting project homepage ... [#{@project.homepage.chomp.strip!}]\n"
+      print "  * Extracting project homepage   ...   [#{@project.homepage.chomp.strip!}]\n"
     end
   end
 
