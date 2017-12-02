@@ -12,3 +12,5 @@ src/Export/html/
 .*.swo
 Gemfile.lock
 .bundle/
+.yardoc/
+doc/
