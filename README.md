@@ -26,21 +26,22 @@ A Ruby gem to help you: **keep proper changelog for your pojects**. - https://de
 ![devist-term](docs/img/devist-cli.png)
 
 ## How do I devist? (Getting started)
-- You are a developer with a typical `changelog.md` file in your project:
+- You are a developer with a typical `changelog.md` file in your project.
 
 **devist**, helps you to: 
-* keep your logfile clean and readable,
-* export these file to `*.html`, 
-* integrated in git and deployment,
-* offer number of other features ...
+  
+* keep your logfile clean and readable,  
+* export these file to `*.html`,  
+* integrated in git and deployment,  
+* offer number of other features ...  
    
 **Install Devist through Gem**:
 
 ```sh
 $ gem install devist
 
-# Example
-$ mkdir -p $HOME/dev/changelog && devist --new && devist changelog
+$ (cd ~/project)
+$ devist init && devist changelog
          __          _      __ 
     ____/ /__ _   __(_)____/ /_
    / __  / _ \ | / / / ___/ __/
@@ -73,20 +74,20 @@ $ mkdir -p $HOME/dev/changelog && devist --new && devist changelog
 ## Installation
 
 ### Requirements
-To run `devist` on your system you basically don't need anything. We followed best advice as with `vicilog` and made 
-the **devist** be available in the wild without huge dependency list.
-
+  
 Since `devist` is built natively with Ruby components/libs, you can start using **devist** right now.
-
+  
 Check if your system does have at least Ruby 2.0.0 installed.
 
 ```
 $ ruby -v
 ruby 2.0.0p648 (.) 
+
+$ gem --version
+2.6.0 >
 ```
 
 Of course, your project should have `changelog.md` or equivalent so *devist* can parse and export something.
-
   
 ### Automatic Installation
 To install `devist`, run:
@@ -96,7 +97,7 @@ $ gem install devist
 ```
   
 ### Manual Installation
-For nightly builts, you may want to clone or checkout the branch/nightly and build the gem from
+For nightly builts, you may want to clone or checkout the branch and build the gem from
 `.*gemspec`.
   
 ```
@@ -106,85 +107,41 @@ $ gem install ./devist
 ```
   
 ## General
-Check [devist changelog](https://devist.io/changelog.html) for showoff. The `devist` is
+Demo is available at [devist changelog](https://devist.io/changelog.html). The `devist` is
 built and debugged upon it's changelog file. Ain't that cool?
   
 ### Changelog format
-The changelog format we prefer is really easy to remember and understand under various circumstances. Please, use either 
-`$ devist --new` to create a new base skeleton for the changelog file or create your sample like this:
+The changelog format we prefer is really easy to remember and understand under various circumstances. Generate a new
+changelog skeleton using command line.
   
-```
-$ devist --new
-  --snip
-
-  * Generating CHANGELOG.md ...
-  * Output .devist as a way of thinkering ...
-  -
-  ** All done! Continue editing CHANGELOG.md.
+```sh
+$ devist init
+--snip
+* Generating CHANGELOG.md ...
+* Output .devist as a way of thinkering ...
+-
+** All done! Continue editing CHANGELOG.md.
 
 $ cat CHANGELOG.md
-@project: MyProject
-@author: Your Name <email@address.com>
-@homepage: https://example.com
-
 ### Version 1.0.0 of 20 Jul 2017
 + #added: something goes here
-
-.devist
 ```
   
 Basic requirements for the `changelog.md` file are these:
   
-* There are optional `@project`, `@author`, and `@homepage` references
-  - We advice you to use them and add two spaces after every line (line break) for readability.
-  
-* To register a version, use `### Version x.x(.x) of Mon(th) dd YYYY`
-  - Any date format is supported but keep it consistent.
-  
-* To register a change, use `+ #[tag]: (change)`
-  - Tags are: **added**, **fixed**, **removed**, **improved**.
-  - Example: `+ #fixed: issue #39 - hell on earth`.
-  
-* Last line of file can be anything, `.devist` is just a tag from init.  
+* There are optional `@project`, `@author`, and `@homepage` references.  
+* To register a version, use `### Version x.x(.x) of Mon(th) dd YYYY`.  
+* To register a change, use `+ #[tag]: (change)`.  
   
 ### Why is it useful?
-Before **devist**, I made [vicilog](https://github.com/duraki/vicilog). Although it got attention on the original 
-repository, the system was not dynamic, and very, very basic. You had to enter all changelogs in raw RIPL system and you 
-couldn't reuse the `json` properly.
-   
-Devist allows a great number of options including but not limited to export theme, export method, ease of use and still getting updated.
 
-Here are the main reason why you should use **devist**:
-
-* The changelog format is properly examined to be readable as:
-  - Textual document (raw text)
-  - Markdown parsed (we followed GitHub style)
-  - Devist exported (with any theme of your choice)
-  - Inspired by keepachangelog
-  - Can be sorted using `--sort` argument
+* Markdown parse
+* Static output, HTML with theme support
+* Different changelog format support
+* Easy to use and zero dependencies
+* Extensible
+* Enjoy proper changelog
   
-* Devist will sort your tags by priority in this order: **added**; **fixed**; **removed**; **improved**
-  - We still allow theme contributors to reuse order of tags how ever they want (yayy!)
-  
-* Changelog `.md` format is easy to extend
-  - You can use HTML directly
-  - It's widely supported
-  - It's readable and reusable
-  
-* Theme support
-  - We got you covered with default themes (`default`, & `polar`)
-  - You can write custom themes to fit your project design
-  - Themes are easy to write! Check theme contribution in [CONTRIBUTION](CONTRIBUTION.md) for details or look into code of default themes.
-  
-* Export
-  - The main point of **devist** is to keep changelog readable
-    - *it does so by allowing you to export this notes in html*
-  - The export file `changelog.html` is generated at project `.md` location
-  - You can create a deploy task to generate + move the file to your controller action
-  - [Integration](#integration)
-
-* *More soon heh*
-
 ### Themes (+ contribution)
 Refer to default themes in repository for contribution help and future documentation.
   
@@ -210,7 +167,6 @@ $ devist theme default https://raw.githubusercontent.com/duraki/devist/master/li
 ```
   
 The compiler build themes upon `*.erb` binding.
-Currently, the project offers two built-in themes: **default**, & **polar**. 
   
 If you want to **contribute** to themes, please, do so in [devist-themes](https://github.com/stacklog/devist-themes) repository. To learn how to make own themes, please refer to our API. For better understanding, read the code of built-in themes.
 
@@ -222,7 +178,6 @@ Here is small list of contribution guidelines regarding public themes:
 * The theme should follow the in-line and in-file style (no external stylesheets / JS / ads / tracking are allowed)
 * Google Fonts is allowed
   
-
 
 ## Integrations
   
