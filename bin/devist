@@ -6,24 +6,17 @@ require 'colorize'
 ##############################################################
 #
 # bin/devist
-#
-# Main action point. Devist binary.
-# stacklog/devist @ github
-#
 # Halis Duraki <duraki.halis@nsoft.ba>
 #
 ##############################################################
 
-# bin/devist.rb
-# This file is a part of the devist package.
-# Halis Duraki <duraki.halis@nsoft.ba>
+# bin/devist
+# This file is a part of the devist package (2017).  
 #
-# This is the main entry point of the Devist. It creates a
-# binary and parse and execute actions based on given CLI
-# arguments.
-class DevistBinary
+# This is the main entry point of the Devist. It creates a binary instance and 
+# parse, execute and work with actions based on given arguments.
+class Binary
 
-  # Print getting started/usage.
 	def print_start
     puts <<EOL 
 
@@ -34,18 +27,22 @@ class DevistBinary
 EOL
 	end
 
-  # Print banner image.
-  def print_logo
+  def logo
     puts <<EOL
          __          _      __ 
     ____/ /__ _   __(_)____/ /_
    / __  / _ \\ | / / / ___/ __/
   / /_/ /  __/ |/ / (__  ) /_  
   \\__,_/\\___/|___/_/____/\\__/ 
+
+EOL
+  end
+
+  def print_about
+    puts <<EOL
 - Release notes generator.
   #{"https://devist.io".yellow} - Halis Duraki <duraki@linuxmail.org>
-
-
+  
 EOL
   end
 
@@ -72,6 +69,7 @@ EOL
   -
   # Other commands:
   $ #{"devist".green}          | run devist cli
+  $ #{"devist --cmd".green}    | usage / commands
   $ #{"devist --help".green}   | usage / this menu
   $ #{"devist --v".green}      | show current version
   
@@ -90,7 +88,8 @@ EOL
   def ep (arguments)
     @arguments = arguments
 
-    print_logo
+    logo
+    print_about
 
     # Recieved filename + theme as args
     if @arguments.count.equal?(2)
@@ -104,14 +103,12 @@ EOL
 
     # Check other arguments
     case @arguments[0]
-    when '--help'
+    when '--h', '--help', '--cmd'
       print_help
-    when '--v'
+    when '--v', '--version'
       version
-    when '--new'
+    when '--new', 'init'
       create # Deperecated version
-    when 'init'
-      create  # Create new changelog (fresh project)
     else
       default # Try to export with filename and default theme
       return
@@ -128,7 +125,7 @@ EOL
     end
   end
 
-  # Generate by specifying theme.
+  # Generate with specific theme file.
   def theme
     file_name = @arguments[0]
     theme_name = @arguments[1]
@@ -140,9 +137,7 @@ EOL
 
   # Display devist version.
   def version
-    v = `git rev-parse HEAD`
-    d = `git log -1 --format=%cd`
-    print "  * devist version: #{v[0, 7]} - #{d[0, 10]}\n"
+    print "  * devist version: #{Devist::VERSION}\n"
   end
 
   # Create new changelog.
@@ -205,7 +200,7 @@ EOL
     new.close
   end
 
-  # Decompile ep.
+  # Decompile
   def decompile(file_name, theme_name = 'default')
     print "  * devist will try to generate export for file '#{file_name}' with theme '#{theme_name}'\n"
 
@@ -217,5 +212,5 @@ EOL
 end
 
 # Create new bin/ep with argv
-devistbin = DevistBinary.new
+devistbin = Binary.new
 devistbin.ep(ARGV)

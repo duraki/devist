@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = 'A Ruby gem that keeps track of your changelog. Support keepachangelog format and offers HTML export.'
   s.authors     = ['Halis Duraki']
   s.email       = 'duraki@linuxmail.org'
-  s.files       = ['lib/devist/helper.rb', 'lib/devist/version.rb', 'lib/devist.rb', 'lib/devist/compiler.rb', 'lib/devist/extractor.rb', 'lib/devist/parser.rb', 'lib/devist/models/project.rb', 'lib/devist/models/tags.rb', 'lib/devist/models/version.rb', 'lib/devist/export/html/_default.html.erb', 'lib/devist/export/html/_polar.html.erb']
+  s.files       = Dir['lib/**/*.rb']
   s.homepage    =
     'https://devist.io'
   s.license     = 'MIT'
