@@ -2,8 +2,6 @@
 # value for compiler.
 #
 # @author Halis Duraki
-#     @return parser [Object] module for parsing data init 
-#     @return compiler [Object] module for compiling data init
 class Devist
 
   attr_reader :parser, :compiler

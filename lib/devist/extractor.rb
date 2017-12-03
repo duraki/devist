@@ -1,10 +1,17 @@
-# Extractor class parse given filename and extracts affected elements line by
-# line on a changelog revision. 
+# Extractor class parse given filename and extracts affected elements line by line on a changelog revision. 
 #
 # @author Halis Duraki
 class Devist::Extractor
 
   class << self
+
+    # Match version pattern for GNU/KAC format.
+    #
+    # @param [String] line to cmp to
+    # @return [String] extracted version 
+    def extract_version_kac(line)
+      line[/\[[0-9]+.[0-9]+.[0-9]+]/, 0].gsub(/[\[\]]/, "")
+    end
 
     # Match version pattern.
     #
@@ -20,6 +27,14 @@ class Devist::Extractor
     # @return [String] extracted change
     def extract_change(line)
       line.split(': ')[-1]
+    end
+
+    # Match changetag pattern.
+    #
+    # @param [String] line to cmp to
+    # @return [String] extracted change
+    def extract_change_kac(line)
+      line.split('- ')[-1]
     end
 
     # Match project info pattern.
