@@ -13,7 +13,7 @@ class Devist::Tag
   # Initialize changetag object. Creates a new multidimensional array of
   # changes.
   def initialize
-    @list = %w[added fixed removed improved]
+    @list = %w[added changed fixed removed deprecated security]
     @change = Marray.new(@list.count)
   end
 
