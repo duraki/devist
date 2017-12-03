@@ -12,7 +12,7 @@ class Devist::Compiler
   # @param [String] project name 
   # @param [Object] changelog model 
   # @param [String] export theme
-  def initialize(project, changelog, theme)
+  def initialize(project = "", changelog = "", theme = "")
     @project    = project
     @changelog  = changelog
     @theme      = theme
